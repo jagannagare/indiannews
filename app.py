@@ -88,16 +88,18 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    #speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+    #        ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
+    speech = " <speak> Tone one<audio src='http://www.indianewspodcast.com/pc/files/2081-Coin_Drop-Willem_Hunt-569197907/mp3/Coin_Drop-Willem_Hunt-569197907.mp3'></audio></speak>"
+    
     print("Response:")
     print(speech)
 
     return {
         "speech": speech,
         "displayText": speech,
-        # "data": data,
+        "data":{google:{"expect_user_response": true,"is_ssml": true}},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
