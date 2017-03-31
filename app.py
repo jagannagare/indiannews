@@ -91,21 +91,21 @@ def makeWebhookResult(data):
     #speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
     #        ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
-    speech = "<speak> Tone one<audio src='http://www.indianewspodcast.com/pc/files/2081-Coin_Drop-Willem_Hunt-569197907/mp3/Coin_Drop-Willem_Hunt-569197907.mp3'></audio></speak>"
-    data = {"google": {"expect_user_response": "true","is_ssml": "true"}}
-    attachement = {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [
-                    {
-                        "title": 'Kitten',
-                        "image_url": 'https://petersapparel.com/img/shirt.png',
-                        "buttons": [{"type": 'postback', "title": 'More Info', "payload": 'More Info'}]
-                    }
-                ]
-            }
-        }
+    speech = "<speak> One second <break time=\"3s\"/> OK, I have used the best quantum processing algorithms known to computer science! Your silly name is $color $number. I hope you like it. <audio src=\"https://www.partnersinrhyme.com/files/sounds1/WAV/sports/baseball/Ball_Hit_Cheer.wav\"></audio> </speak>"
+    # data = {"google": {"expect_user_response": "true","is_ssml": "true"}}
+    # attachement = {
+    #         "type": "template",
+    #         "payload": {
+    #             "template_type": "generic",
+    #             "elements": [
+    #                 {
+    #                     "title": 'Kitten',
+    #                     "image_url": 'https://petersapparel.com/img/shirt.png',
+    #                     "buttons": [{"type": 'postback', "title": 'More Info', "payload": 'More Info'}]
+    #                 }
+    #             ]
+    #         }
+    #     }
     messages = {
         "attachment": {
             "type": "image",
@@ -119,10 +119,11 @@ def makeWebhookResult(data):
     # print(speech)
 
     return {
+        "is_ssml": "true",
         "speech": speech,
         "displayText": speech,
-        "data": data,
-        "attachement": attachement,
+        #"data": data,
+        # "attachement": attachement,
         "messages": [messages],
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
