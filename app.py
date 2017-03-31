@@ -91,7 +91,7 @@ def makeWebhookResult(data):
     #speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
     #        ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
-    speech = " <speak> Tone one<audio src='http://www.indianewspodcast.com/pc/files/2081-Coin_Drop-Willem_Hunt-569197907/mp3/Coin_Drop-Willem_Hunt-569197907.mp3'></audio></speak>"
+    speech = "<speak> Tone one<audio src='http://www.indianewspodcast.com/pc/files/2081-Coin_Drop-Willem_Hunt-569197907/mp3/Coin_Drop-Willem_Hunt-569197907.mp3'></audio></speak>"
     
     print("Response:")
     print(speech)
