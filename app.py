@@ -48,7 +48,7 @@ def processRequest(req):
     print("Data : ")
     print(data)
     res = makeWebhookResult(data)
-    print("makeWebhookResult")
+    print("makeWebhookResult:")
     print(res)
     return res
 
@@ -92,14 +92,39 @@ def makeWebhookResult(data):
     #        ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
     speech = "<speak> Tone one<audio src='http://www.indianewspodcast.com/pc/files/2081-Coin_Drop-Willem_Hunt-569197907/mp3/Coin_Drop-Willem_Hunt-569197907.mp3'></audio></speak>"
-    
-    print("Response:")
-    print(speech)
+    data = {"google": {"expect_user_response": "true","is_ssml": "true"}}
+    attachement =  {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": 'Kitten',
+                        "image_url": 'https://petersapparel.com/img/shirt.png',
+                        "buttons": [{"type": 'postback', "title": 'More Info', "payload": 'More Info'}]
+                    }
+                ]
+            }
+        }
+    message = {
+        "attachment": {
+            "type": "image",
+            "payload": {
+                "url": "https://petersapparel.com/img/shirt.png"
+            }
+        }
+    }
+
+
+    # print("Response:")
+    # print(speech)
 
     return {
         "speech": speech,
         "displayText": speech,
-        "data": "{google: {'expect_user_response'': true,'is_ssml': true}}",
+        "data": data,
+        "attachement":attachement,
+        "message":message,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
