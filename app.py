@@ -93,7 +93,7 @@ def makeWebhookResult(data):
 
     speech = "<speak> Tone one<audio src='http://www.indianewspodcast.com/pc/files/2081-Coin_Drop-Willem_Hunt-569197907/mp3/Coin_Drop-Willem_Hunt-569197907.mp3'></audio></speak>"
     data = {"google": {"expect_user_response": "true","is_ssml": "true"}}
-    attachement =  {
+    attachement = {
             "type": "template",
             "payload": {
                 "template_type": "generic",
@@ -106,7 +106,7 @@ def makeWebhookResult(data):
                 ]
             }
         }
-    message = {
+    messages = {
         "attachment": {
             "type": "image",
             "payload": {
@@ -115,7 +115,6 @@ def makeWebhookResult(data):
         }
     }
 
-
     # print("Response:")
     # print(speech)
 
@@ -123,8 +122,8 @@ def makeWebhookResult(data):
         "speech": speech,
         "displayText": speech,
         "data": data,
-        "attachement":attachement,
-        "message":message,
+        "attachement": attachement,
+        "messages": [messages],
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
